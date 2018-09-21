@@ -29,7 +29,23 @@ namespace PracticaInteracciones
         private void sldPorcentajePropina_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             lblPorcentajePropina.Text =
-                sldPorcentajePropina.Value.ToString();
+                ((int)(sldPorcentajePropina.Value)).ToString() + 
+                "%";
+
+            float cuenta =
+                float.Parse(txtCuenta.Text);
+
+            float montoPropina =
+                (int)(sldPorcentajePropina.Value)
+                / 100.0f
+                * cuenta;
+
+            float totalAPagar =
+                cuenta + montoPropina;
+
+            lblTotalConPropina.Text =
+                totalAPagar.ToString();
+
         }
 
 
